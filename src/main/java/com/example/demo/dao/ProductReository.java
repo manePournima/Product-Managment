@@ -11,5 +11,4 @@ import com.example.demo.dto.Product;
 public interface ProductReository extends JpaRepository <Product, Integer> {
 	List<Product> findByStatus(String status);
 
-	
 }

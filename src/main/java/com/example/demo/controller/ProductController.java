@@ -14,39 +14,47 @@ import com.example.demo.service.ProductService;
 
 @RestController
 public class ProductController {
-	
+
 	@Autowired
 	private ProductService productService;
-	
 
-	
-	  public ProductController() {
-	  System.out.println("inside ProductController const"); }
-	  
-	/* @GetMapping("/healthcheck") public String heathcheck() { return
-	 * "Product Service UP"; }
-	 * 
-	 * @GetMapping("/getAllProduct/") public List<Product> getAllActiveProduct() {
-	 * System.out.println("inside ProductController.getAllActiveProduct");
-	 * List<Product> prodlist=productService.getAllProduct(); return prodlist; }
+	public ProductController() {
+		System.out.println("inside ProductController const");
+	}
+
+	@GetMapping("/healthcheck")
+	public String heathcheck() {
+		return "Product Service UP";
+	}
+
+	@GetMapping("/getAllProduct/")
+	public List<Product> getAllActiveProduct() {
+		System.out.println("inside ProductController.getAllActiveProduct");
+
+		List<Product> prodlist = productService.getAllProduct();
+		System.out.println(prodlist);
+		return prodlist;
+
+	}
+
+	@PostMapping("/create")
+	public Product createProduct(@RequestBody Product product) {
+		System.out.println("inside ProductController. createProduct ");
+		Product product1 = productService.createProduct(product);
+		return product1;
+	}
+
+	@GetMapping("/active")
+	public List<Product> getactivestatus(String status) {
+		System.out.println("inside getactive Status");
+		List<Product> pa = productService.getActiveProducts(status);
+		return pa;
+	}
+
+	/*
+	 * @GetMapping("/findById") public Product findByid() {
+	 * System.out.println("inside ProductController.findBYId");
+	 * productService.ProductById(); return null; }
 	 */
-	
-	
-
-    @PostMapping("/create")
-    public Product createProduct(@RequestBody Product product) {
-    	System.out.println("inside ProductController. createProduct ");
-    	Product product1= productService.createProduct(product);
-        return product1;
-    }
-    
-    @GetMapping("/active")
-    public List<Product> getactivestatus()
-    {
-    	System.out.println("inside getactive Status");
-    	List<Product> pa=productService.getActiveProducts();
-    	return pa;
-    }
-	
 
 }
