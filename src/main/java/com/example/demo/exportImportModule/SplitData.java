@@ -15,25 +15,15 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class SplitDataController {
-	
-	@Autowired
-	SplitDataService splitDataService;
-
-	public static void deleteSpecificFile (String folderPath, String fileName)
-	{
-		return;
-	}
+public class SplitData {
 	
 
-	/*public static void deleteSpecificFile(String folderPath, String fileName) {
+	public static void deleteSpecificFile(String folderPath, String fileName) {
 
 		try {
 			// Check if the specific file exists
 			Path filePath = Paths.get(folderPath, fileName);
-			boolean
-			 isFileExists = Files.exists(filePath);
+			boolean isFileExists = Files.exists(filePath);
 
 			if (isFileExists) {
 				// Delete the specific file
@@ -97,7 +87,7 @@ public class SplitDataController {
 			e.printStackTrace();
 		}
 		}
-*/
+
 	
 
 }

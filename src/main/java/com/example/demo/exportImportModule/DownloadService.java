@@ -42,7 +42,7 @@ public class DownloadService {
 	            headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=product.xlsx");
 	            headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
 
-	            SplitDataController sd=new SplitDataController();
+	            SplitData sd=new SplitData();
 	            sd.deleteSpecificFile("C:/Users/HP/Downloads/product.xlsx", "products.xlsx");
 	            sd.Splitter();
 	            
